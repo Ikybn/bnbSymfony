@@ -14,7 +14,44 @@ img {
     transition: all 700ms ease-in;
 }
 
-img:hover {
-    transform: scale(0.9);
-    transition: all 700 ms ease-out;
+.paris {
+    background-image: url('/images/paris.jpg');
 }
+.lasvegas {
+    background-image: url('/images/las-vegas.jpg');
+}
+.kyoto {
+    background-image: url('/images/kyoto.jpg');
+}
+.sydney {
+    background-image: url('/images/sydney.jpg');
+}
+.hongkong {
+    background-image: url('/images/hongkong.jpg');
+}
+
+.paris, .kyoto, .lasvegas, .sydney, .hongkong {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.title, .subtitle {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 8vw;
+    line-height:1;
+    font-weight:700;
+}
+
+.subtitle {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: .25rem;
+    -webkit-text-stroke-color: #fff;
+    transform:rotate(180deg);
+}
+
+.subtitle-reverse {
+    transform:inherit;
+}
+
