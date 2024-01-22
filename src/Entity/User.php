@@ -67,11 +67,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
+    #[ORM\OneToMany(mappedBy: 'traveler', targetEntity: Favorite::class, orphanRemoval: true)]
+    private Collection $favorites;
+
     public function __construct()
     {
         $this->rooms = new ArrayCollection();
         $this->reviews = new ArrayCollection();
         $this->bookings = new ArrayCollection();
+        $this->favorites = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -338,6 +342,40 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): static
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Room>
+     */
+
+    /**
+     * @return Collection<int, Favorite>
+     */
+    public function getFavorites(): Collection
+    {
+        return $this->favorites;
+    }
+
+    public function addFavorite(Favorite $favorite): static
+    {
+        if (!$this->favorites->contains($favorite)) {
+            $this->favorites->add($favorite);
+            $favorite->setTraveler($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFavorite(Favorite $favorite): static
+    {
+        if ($this->favorites->removeElement($favorite)) {
+            // set the owning side to null (unless already changed)
+            if ($favorite->getTraveler() === $this) {
+                $favorite->setTraveler(null);
+            }
+        }
 
         return $this;
     }

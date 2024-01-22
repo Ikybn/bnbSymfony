@@ -16,7 +16,7 @@ class PageController extends AbstractController
             'background' => 'paris',
         ]);
     }
-    #[Route('/', name: 'lasvegas')]
+    #[Route('/lasvegas', name: 'lasvegas', methods: ['GET'])]
     public function lasvegas(): Response
     {
         return $this->render('page/city.html.twig', [
@@ -24,7 +24,7 @@ class PageController extends AbstractController
             'background' => 'Las Vegas',
         ]);
     }
-    #[Route('/', name: 'kyoto')]
+    #[Route('/kyoto', name: 'kyoto', methods: ['GET'])]
     public function kyoto(): Response
     {
         return $this->render('page/city.html.twig', [
@@ -33,7 +33,7 @@ class PageController extends AbstractController
             'background' => 'Kyoto',
         ]);
     }
-    #[Route('/', name: 'sydney')]
+    #[Route('/sydney', name: 'sydney', methods: ['GET'])]
     public function sydney(): Response
     {
         return $this->render('page/city.html.twig', [
@@ -41,7 +41,7 @@ class PageController extends AbstractController
             'background' => 'Sydney',
         ]);
     }
-    #[Route('/', name: 'hongkong')]
+    #[Route('/hongkong', name: 'hongkong', methods: ['GET'])]
     public function hongkong(): Response
     {
         return $this->render('page/city.html.twig', [
