@@ -9,14 +9,17 @@
     color:#fff;
 }
 
-.btn-custom:hover {
+.btn-custom:hover, .btn-custom:focus, .btn-custom:active {
     background-color: var(--custom-secondary);
     color:#fff;
 }
 
 .bg-dark {
-    background-color: var(--custom-main);
-    color:#fff;
+    background-color: var(--custom-main) !important;
+}
+
+.text-main {
+    color: var(--custom-main) !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
