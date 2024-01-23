@@ -50,4 +50,11 @@ class PageController extends AbstractController
             'background' => 'Hong Kong',
         ]);
     }
+
+    #[Route('/account', name: 'account', methods: ['GET', 'POST'])]
+    public function account(): Response
+    {
+        return $this->render('page/account.html.twig', [
+        ]);
+    }
 }
